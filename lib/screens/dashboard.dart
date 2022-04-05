@@ -1,9 +1,8 @@
-import 'package:bytebank/screens/contact-list.dart';
 import 'package:flutter/material.dart';
 
-class Dashboard extends StatelessWidget {
-  const Dashboard({Key? key}) : super(key: key);
+import 'contact-list.dart';
 
+class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,33 +12,46 @@ class Dashboard extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           Padding(
-            child: Image.asset('images/bytebank_logo.png'),
             padding: const EdgeInsets.all(8.0),
+            child: Image.asset('images/bytebank_logo.png'),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Material(
               color: Theme.of(context).primaryColor,
               child: InkWell(
-                onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const ContactsList())),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const ContactsList(),
+                    ),
+                  );
+                },
                 child: Container(
-                    padding: const EdgeInsets.all(8.0),
-                    height: 120,
-                    width: 100,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        iconeContato(),
-                        const Text(
-                          'Contacts',
-                          style: TextStyle(color: Colors.white, fontSize: 16.0),
+                  padding: const EdgeInsets.all(8.0),
+                  height: 100,
+                  width: 150,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const <Widget>[
+                      Icon(
+                        Icons.people,
+                        color: Colors.white,
+                        size: 24.0,
+                      ),
+                      Text(
+                        'Contacts',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.0,
                         ),
-                      ],
-                    )),
+                      )
+                    ],
+                  ),
+                ),
               ),
             ),
           )
@@ -47,10 +59,4 @@ class Dashboard extends StatelessWidget {
       ),
     );
   }
-
-  Icon iconeContato() => const Icon(
-        Icons.people,
-        color: Colors.white,
-        size: 24.0,
-      );
 }
