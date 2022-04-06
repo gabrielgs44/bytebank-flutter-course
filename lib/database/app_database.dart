@@ -6,7 +6,7 @@ import '../models/contact.dart';
 Future<Database> createDatabase() {
   return getDatabasesPath().then((dbPath) {
     //alguma_coisa.db é o nome do banco, mudado para fins de teste
-    final String path = join(dbPath, 'mm.db');
+    final String path = join(dbPath, 'bytebank.db');
     return openDatabase(
       path,
       onCreate: (db, version) {
@@ -16,7 +16,7 @@ Future<Database> createDatabase() {
             'account_number INTEGER)');
       },
       version: 1,
-      // onDowngrade: onDatabaseDowngradeDelete,
+      onDowngrade: onDatabaseDowngradeDelete,
     );
   });
 }
