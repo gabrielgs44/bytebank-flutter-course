@@ -18,10 +18,9 @@ class BytebankApp extends StatelessWidget {
             primary: Colors.green[900],
             secondary: Colors.blueAccent.shade700,
           ),
-          elevatedButtonTheme: ElevatedButtonThemeData(
-              style: TextButton.styleFrom(
-                  backgroundColor: Colors.blueAccent[700]))),
-      home: Dashboard(), //Scaffold
+          elevatedButtonTheme:
+              ElevatedButtonThemeData(style: TextButton.styleFrom(backgroundColor: Colors.blueAccent[700]))),
+      home: const Dashboard(), //Scaffold
     );
   }
 }
